@@ -94,7 +94,13 @@ def show_tab4_seasonal_keywords():
         ax.scatter(X_others[:, 0], X_others[:, 1], color="lightgray", alpha=0.6)
         for j, w in enumerate(words_others):
             ax.text(
-                X_others[j, 0], X_others[j, 1], w, fontsize=8, color="gray", alpha=0.4
+                X_others[j, 0],
+                X_others[j, 1],
+                w,
+                fontsize=8,
+                color="gray",
+                alpha=0.4,
+                fontproperties=font_prop,  # ✅ 폰트 적용
             )
 
         ax.scatter(
@@ -108,10 +114,14 @@ def show_tab4_seasonal_keywords():
                 fontsize=10,
                 color=season_colors[season],
                 weight="bold",
+                fontproperties=font_prop,  # ✅ 폰트 적용
             )
 
-        ax.set_title(f"{season} 키워드 시각화", fontsize=14)
-        ax.grid(True, linestyle="--", alpha=0.3)
+        ax.set_title(
+            f"{season} 키워드 시각화",
+            fontsize=14,
+            fontproperties=font_prop,  # ✅ 제목에도 폰트 적용
+        )
 
     plt.tight_layout()
     st.pyplot(fig)

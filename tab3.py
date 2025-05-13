@@ -91,20 +91,38 @@ def show_tab3_injury_keywords():
     # 📊 시각화
     fig, ax = plt.subplots(figsize=(12, 8))
 
+    # 기타 단어 (검정)
     ax.scatter(
         X_others[:, 0], X_others[:, 1], color="black", alpha=0.6, label="기타 단어"
     )
     for i, w in enumerate(words_others):
-        ax.text(X_others[i, 0], X_others[i, 1], w, fontsize=8, color="black")
+        ax.text(
+            X_others[i, 0],
+            X_others[i, 1],
+            w,
+            fontsize=8,
+            color="black",
+            fontproperties=font_prop,  # ✅ 폰트 적용
+        )
 
+    # 강조 단어 (빨강)
     ax.scatter(
         X_highlight[:, 0], X_highlight[:, 1], color="red", alpha=0.9, label="중요 단어"
     )
     for i, w in enumerate(words_highlight):
-        ax.text(X_highlight[i, 0], X_highlight[i, 1], w, fontsize=8, color="red")
+        ax.text(
+            X_highlight[i, 0],
+            X_highlight[i, 1],
+            w,
+            fontsize=8,
+            color="red",
+            fontproperties=font_prop,  # ✅ 폰트 적용
+        )
 
-    ax.set_title("중요 키워드 강조 시각화 (t-SNE 기반)")
-    ax.legend()
+    ax.set_title(
+        "중요 키워드 강조 시각화 (t-SNE 기반)", fontproperties=font_prop
+    )  # ✅ 제목
+    ax.legend(prop=font_prop)  # ✅ 범례 폰트 적용
     ax.grid(True, linestyle="--", alpha=0.3)
 
     st.pyplot(fig)

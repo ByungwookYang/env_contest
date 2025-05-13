@@ -97,7 +97,6 @@ def show_tab2_visualization():
     ]
     ax.legend(
         handles=legend_patches,
-        title="클러스터 주제",
         bbox_to_anchor=(0.9, 1.05),
         loc="upper center",
         prop=font_prop,  # ✅ 범례 글씨도 폰트 적용
