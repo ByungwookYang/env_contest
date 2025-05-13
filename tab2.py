@@ -70,6 +70,7 @@ def show_tab2_visualization():
     }
 
     # 6. 시각화
+    # 6. 시각화
     fig, ax = plt.subplots(figsize=(14, 10))
     colors = cm.tab10(np.linspace(0, 1, n_clusters))
 
@@ -83,7 +84,13 @@ def show_tab2_visualization():
             label=cluster_titles[cluster_id],
         )
         for i in np.where(idx)[0]:
-            ax.text(X_tsne[i, 0], X_tsne[i, 1], words[i], fontsize=9)
+            ax.text(
+                X_tsne[i, 0],
+                X_tsne[i, 1],
+                words[i],
+                fontsize=9,
+                fontproperties=font_prop,  # ✅ 한글 깨짐 방지
+            )
 
     legend_patches = [
         Patch(color=colors[i], label=cluster_titles[i]) for i in range(n_clusters)
@@ -93,9 +100,12 @@ def show_tab2_visualization():
         title="클러스터 주제",
         bbox_to_anchor=(0.9, 1.05),
         loc="upper center",
+        prop=font_prop,  # ✅ 범례 글씨도 폰트 적용
     )
 
-    ax.set_title("Jaccard 기반 t-SNE + KMeans 클러스터링")
+    ax.set_title(
+        "Jaccard 기반 t-SNE + KMeans 클러스터링", fontproperties=font_prop
+    )  # ✅ 제목
     ax.grid(True, linestyle="--", alpha=0.3)
     st.pyplot(fig)
 
