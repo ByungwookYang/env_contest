@@ -23,9 +23,9 @@
 
 - **모델**
 
-**1. 거리 척도:** 자카드(Jaccard) 거리: 이진 등장 여부만을 고려해 공동 등장 비율을 정량화.
+  **1. 거리 척도:** 자카드(Jaccard) 거리: 이진 등장 여부만을 고려해 공동 등장 비율을 정량화.
 
-**2. 차원 축소:** t-SNE (t-Distributed Stochastic Neighbor Embedding)
+  **2. 차원 축소:** t-SNE (t-Distributed Stochastic Neighbor Embedding)
 
 - **모델 선정 과정:** 단어 벡터가이진 및 연속 가중치가 없는 상황에서 자카드 거리가 ‘공동·개별
 등장’ 정보를 가장 직관적으로 포착할 것으로 판단
